@@ -63,3 +63,14 @@ class User(Base):
             return 0
         finally:
             session.close()
+
+    @staticmethod
+    def getAllUser():
+        session = DBSession()
+        try:
+            users = session.query(User).all()
+            return users
+        except Exception:
+            return 0
+        finally:
+            session.close()
